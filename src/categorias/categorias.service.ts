@@ -10,13 +10,13 @@ export class CategoriasService {
 
 constructor( @InjectRepository(Categoria) private readonly categoriaRepository: Repository<Categoria>,) {}
 
-  create(CreateCategoriaDto: CreateCategoriaDto) {
+  create(createCategoriaDto: CreateCategoriaDto) {
         const categoria: Categoria = new Categoria();
-        categoria.name = CreateCategoriaDto.name;
-        categoria.descripcion = CreateCategoriaDto.descripcion;
+        categoria.name = createCategoriaDto.name;
+        categoria.descripcion = createCategoriaDto.descripcion;
         return this.categoriaRepository.save(categoria);
   }
-
+  //
   findAll(): Promise<Categoria[]> {
         return this.categoriaRepository.find();
   }
@@ -25,9 +25,10 @@ constructor( @InjectRepository(Categoria) private readonly categoriaRepository: 
         return this.categoriaRepository.findOneBy({ id });
   }
 
-  update(id: number, updateCategoriaDto: UpdateCategoriaDto): Promise<Categoria>{
+  update(id: number, updateCategoriaDto: UpdateCategoriaDto): Promise<Categoria >{
         const categoria: Categoria = new Categoria();
-        categoria.name = UpdateCategoriaDto.name;
+        categoria.name = updateCategoriaDto.name;
+        categoria.descripcion = updateCategoriaDto.descripcion;
         return this.categoriaRepository.save(categoria);
   }
 

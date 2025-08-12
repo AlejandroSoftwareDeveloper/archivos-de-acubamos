@@ -5,7 +5,7 @@ const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%
 export class CreateCategoriaDto {
 
 @IsString()
-@MinLength(2, { message: 'EL campo nombre debe tener al menos 2 characteres.' })
+@MinLength(2, { message: 'El campo nombre debe tener al menos 2 characteres.' })
 @IsNotEmpty()
 name: string;
 
